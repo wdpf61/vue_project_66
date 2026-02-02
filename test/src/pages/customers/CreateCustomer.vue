@@ -1,4 +1,5 @@
 <template>
+   <div>
    <h1>Create Customer</h1>
    <p>{{ customer }}</p>
    <form @submit.prevent="handleCreate">
@@ -20,7 +21,7 @@
        </div>
        <div> <button type="submit">Submit</button></div>
    </form>
- 
+ </div>
 </template>
 
 <script  setup>
@@ -29,6 +30,7 @@ import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
 
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
+const search= ref("");
 const router= useRouter()
 let customer= reactive({
    name:"",

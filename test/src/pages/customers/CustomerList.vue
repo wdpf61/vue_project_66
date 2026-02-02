@@ -13,8 +13,8 @@
               <td>{{ customer.name }}</td>
               <td>{{ customer.email }}</td>
               <td>
-                 <button>Edit</button>
-                 <button>Delete</button>
+                 <button >Edit</button>
+                 <button >Delete</button>
               </td>
           </tr>
        </table>
