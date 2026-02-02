@@ -51,3 +51,15 @@ router.push({ name: 'student', params: { id: 10 } })
 
 api
 npm i axios
+
+
+const filteredCustomers = computed(() => {
+  const q = search.value.trim().toLowerCase()
+
+  if (!q) return customers.value
+
+  return customers.value.filter(customer =>
+    customer.name.toLowerCase().includes(q)||
+     customer.email.toLowerCase().includes(q)
+  )
+})

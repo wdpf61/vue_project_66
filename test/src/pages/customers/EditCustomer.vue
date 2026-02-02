@@ -29,6 +29,7 @@ import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 
   let customerId= useRoute().params.id
+  console.log(customerId);
   let customer=ref({})
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
   const fetchCustomer=()=>{
@@ -45,7 +46,7 @@ import { useRoute } from 'vue-router';
   onMounted(()=>{
     fetchCustomer()
   })
-  // console.log(customerId);
+
   
  const handleUpdate = ()=>{
 
