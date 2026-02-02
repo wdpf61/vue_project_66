@@ -5,6 +5,7 @@ import CreateRole from "../pages/role/CreateRole.vue";
 import EditRole from "../pages/role/EditRole.vue";
 import CustomerList from "../pages/customers/CustomerList.vue";
 import CreateCustomer from "../pages/customers/CreateCustomer.vue";
+import EditCustomer from "../pages/customers/EditCustomer.vue";
 
 
 const routes=[
@@ -16,6 +17,7 @@ const routes=[
 
     {path:"/customers", component:CustomerList},
     {path:"/customers/create", component:CreateCustomer},
+    {path:"/customers/edit/:id", component:EditCustomer},
 ]
 
 

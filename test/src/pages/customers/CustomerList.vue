@@ -13,8 +13,8 @@
               <td>{{ customer.name }}</td>
               <td>{{ customer.email }}</td>
               <td>
-                 <button >Edit</button>
-                 <button >Delete</button>
+                 <router-link :to="`/customers/edit/${customer.id}`"> Edit</router-link>
+                 <button @click="cusotmerDelete(customer.id)" >Delete</button>
               </td>
           </tr>
        </table>
@@ -39,6 +39,19 @@ const baseUrl = import.meta.env.VITE_API_BASE_URL;
     fetchCustomers();
  })
 
+ function cusotmerDelete(id){
+   
+
+   axios.delete(`${baseUrl}/customers/${id}`)
+   .then(res=>{
+      console.log(res);
+      fetchCustomers();
+   })
+   .catch(err=>{
+        console.log(err);
+   })
+
+ }
 
 </script>
 
