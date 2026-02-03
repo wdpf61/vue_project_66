@@ -7,6 +7,7 @@ import CustomerList from "../pages/customers/CustomerList.vue";
 import CreateCustomer from "../pages/customers/CreateCustomer.vue";
 import EditCustomer from "../pages/customers/EditCustomer.vue";
 import Products from "../pages/product/Products.vue";
+import City from "../pages/city/City.vue";
 
 
 
@@ -22,6 +23,7 @@ const routes=[
 
 
     {path:"/products", component:Products},
+    {path:"/city", component:City},
 
 
 ]

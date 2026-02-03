@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CustomerController;
+use App\Http\Controllers\Api\DistrictController;
+use App\Http\Controllers\Api\DivisionController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\RoleController;
 use Illuminate\Http\Request;
@@ -26,6 +28,12 @@ Route::delete("role/delete", [RoleController::class,"destroy"]);
 Route::apiResource("roles", RoleController::class);
 
 Route::apiResource("customers", CustomerController::class);
+
+
+Route::apiResource("divisions", DivisionController::class);
+
+Route::apiResource("districts", DistrictController::class);
+
 
 
 Route::get("order", [OrderController::class,"index"]);
