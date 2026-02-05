@@ -8,6 +8,8 @@ import CreateCustomer from "../pages/customers/CreateCustomer.vue";
 import EditCustomer from "../pages/customers/EditCustomer.vue";
 import Products from "../pages/product/Products.vue";
 import City from "../pages/city/City.vue";
+import DistrictList from "../pages/city/DistrictList.vue";
+import Parent from "../pages/emit/Parent.vue";
 
 
 
@@ -24,6 +26,12 @@ const routes=[
 
     {path:"/products", component:Products},
     {path:"/city", component:City},
+
+
+    {path:"/districts", component:DistrictList},
+
+
+    {path:"/emit", component:Parent},
 
 
 ]
