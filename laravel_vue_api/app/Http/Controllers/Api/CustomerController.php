@@ -24,17 +24,51 @@ class CustomerController extends Controller
     {
 
 
-        try {
+        // try {
+        //     $customer = new Customer();
+        //     $customer->name = $request->customer["name"];
+        //     $customer->email = $request->customer["email"];
+        //     $customer->phone = $request->customer["phone"];
+        //     $customer->address = $request->customer["address"];
+        //     $customer->save();
+        //     return response()->json(["success" => "Customer saved succesfully"], 200);
+        // } catch (\Throwable $th) {
+        //     return response()->json($th->getMessage(), 200);
+        // }
+
+
+
+       try {
             $customer = new Customer();
-            $customer->name = $request->customer["name"];
-            $customer->email = $request->customer["email"];
-            $customer->phone = $request->customer["phone"];
-            $customer->address = $request->customer["address"];
+            $customer->name = $request->name;
+            $customer->email = $request->email;
+            $customer->phone = $request->phone;
+            $customer->address = $request->address;
+
+
+            $imgname = "";
+            if ($request->hasFile("photo")) {
+                // $image= $request->file("photo")->store("photo/customer", "public");
+                $imgname = $request->name . "." . $request->file("photo")->extension();
+                $request->file("photo")->storeAs("photo/customer", $imgname, "public");
+                
+                $customer->photo =$imgname;
+            }
+
+
+
             $customer->save();
             return response()->json(["success" => "Customer saved succesfully"], 200);
         } catch (\Throwable $th) {
             return response()->json($th->getMessage(), 200);
+
         }
+
+
+
+
+
+
     }
 
     /**

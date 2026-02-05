@@ -13,7 +13,7 @@
           </tr>
           <tr v-for="customer in searchCustomer" :key="customer.id">
               <td>{{ customer.id }}</td>
-              <td>{{ customer.name }}</td>
+              <td> <img :src="`${imgUrl}/customer/${customer.photo}`" alt="" srcset="" width="50">   {{ customer.name }} </td>
               <td>{{ customer.email }}</td>
               <td>
                  <router-link :to="`/customers/edit/${customer.id}`"> Edit</router-link>
@@ -28,6 +28,7 @@
 import axios from 'axios';
 import { computed, onMounted, ref } from 'vue';
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
+const imgUrl = import.meta.env.VITE_BASE_IMG_URL;
  const customers= ref([])
 
  let search=ref("");

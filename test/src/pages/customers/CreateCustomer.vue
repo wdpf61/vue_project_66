@@ -19,6 +19,10 @@
         <label for="address">Address</label>
         <input type="text" name="address"  v-model="customer.address">
        </div>
+       <div>
+        <label for="Photo">Photo</label>
+        <input type="file" name="photo"  @change="handlePhoto">
+       </div>
        <div> <button type="submit">Submit</button></div>
    </form>
  </div>
@@ -35,13 +39,24 @@ let customer= reactive({
    name:"",
    email:"",
    phone:"",
-   address:""
+   address:"",
+   photo:null
 })
 
+function handlePhoto(e){
+   customer.photo= e.target.files[0];
+}
+
 function handleCreate(){
-   axios.post(`${baseUrl}/customers`,{
-     customer
-   })
+
+    let formData= new FormData();
+    formData.append("name", customer.name);
+    formData.append("email", customer.email);
+    formData.append("phone", customer.phone);
+    formData.append("address", customer.address);
+    formData.append("photo", customer.photo);
+
+   axios.post(`${baseUrl}/customers`,formData)
    .then(res=>{
      console.log(res);
      router.push("/customers")
