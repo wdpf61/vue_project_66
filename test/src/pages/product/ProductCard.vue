@@ -5,15 +5,25 @@
   <div class="card-body">
     <h5 class="card-title">{{ props.product.title }}</h5>
     <p class="card-text">{{ props.product.description }}</p>
-    <a href="#" class="btn btn-primary">Add To Cart</a>
+    <button @click="addToCart(product)"  class="btn btn-primary">Add To Cart</button>
   </div>
   </div>
   </div>
 </template>
 
 <script  setup>
+import { ref , defineEmits} from 'vue';
+
      let props=defineProps(["product"])
     //  console.log(product);
+    let emit = defineEmits(["product-emit"]);
+
+ function addToCart(product){
+     emit("product-emit", product)
+ }
+
+
+   
      
 </script>
 
