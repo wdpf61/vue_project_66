@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CustomerResource;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class CustomerController extends Controller
     public function index()
     {
         $customers = Customer::all();
-        return response()->json(compact("customers"), 200);
+        // return response()->json(compact("customers"), 200);
+        return CustomerResource::collection($customers);
     }
 
     /**
@@ -51,7 +53,7 @@ class CustomerController extends Controller
                 // $image= $request->file("photo")->store("photo/customer", "public");
                 $imgname = $request->name . "." . $request->file("photo")->extension();
                 $request->file("photo")->storeAs("photo/customer", $imgname, "public");
-                
+
                 $customer->photo =$imgname;
             }
 
@@ -77,7 +79,9 @@ class CustomerController extends Controller
     public function show(string $id)
     {
         $customer = Customer::find($id);
-        return response()->json(["customer" => $customer], 200);
+        // return response()->json(["customer" => $customer], 200);
+
+        return new CustomerResource( $customer );
     }
 
     /**

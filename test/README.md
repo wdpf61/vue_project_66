@@ -41,6 +41,12 @@ createApp(App).use(router).mount('#app')
 
 
 <router-link to="/about">About</router-link>
+
+<router-link :to="{ name: 'profile', params: { username: 'erina' } }">
+  User profile
+</router-link>
+
+
 const route = useRoute()
 console.log(route.params.id)
 
