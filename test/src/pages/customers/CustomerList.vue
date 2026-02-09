@@ -27,6 +27,7 @@
 <script  setup>
 import axios from 'axios';
 import { computed, onMounted, ref } from 'vue';
+import api from '../../services/axios';
 const baseUrl = import.meta.env.VITE_API_BASE_URL;
 const imgUrl = import.meta.env.VITE_BASE_IMG_URL;
  const customers= ref([])
@@ -42,12 +43,14 @@ const imgUrl = import.meta.env.VITE_BASE_IMG_URL;
  });
 
  const fetchCustomers=()=>{
-   axios.get(`${baseUrl}/customers`)
+   api.get(`/customers`)
    .then(res=>{
       console.log(res.data.customers);
       customers.value= res.data.customers;
    })
-   .catch()
+   .catch(res=>{
+       console.log(res);
+   })
  }
 
  onMounted(()=>{

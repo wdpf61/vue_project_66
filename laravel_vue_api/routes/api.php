@@ -13,9 +13,11 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+
 Route::post("auth/login", [AuthController::class,"login"]);
 Route::middleware('auth:sanctum')->group( function(){
     Route::post("auth/logout", [AuthController::class,"logout"]);
+    Route::apiResource("customers", CustomerController::class);
 });
 
 
@@ -27,7 +29,7 @@ Route::delete("role/delete", [RoleController::class,"destroy"]);
 
 Route::apiResource("roles", RoleController::class);
 
-Route::apiResource("customers", CustomerController::class);
+// Route::apiResource("customers", CustomerController::class);
 
 
 Route::apiResource("divisions", DivisionController::class);

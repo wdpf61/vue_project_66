@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -29,7 +30,7 @@ class AuthController extends Controller
         }
 
         $input = $request->all();
-        $input['password'] = bcrypt($input['password']);  //Hash::make($value)
+        $input['password'] =  Hash::make(12345678);  //bcrypt($input['password']);
         $user = User::create($input);
         $success['token'] =  $user->createToken('api-token')->plainTextToken;
         $success['name'] =  $user->name;
@@ -44,9 +45,10 @@ class AuthController extends Controller
 
 
 
-
-
-
+    public function user(Request $request)
+    {
+        return $request->user();
+    }
 
 
     public function login(Request $request)
