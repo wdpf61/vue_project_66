@@ -5,8 +5,6 @@
 </template>
 
 <script lang="ts" setup>
-
-
 const username: string = "Rahim"
 const age: number = 25
 const isLoggedIn: boolean = true

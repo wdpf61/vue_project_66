@@ -1,6 +1,5 @@
 <template>
       <div class="row">
-
                 <div class="col-12 p-0">
                     <div class="login-form-container">
                       <div class="mb-4">
@@ -56,27 +55,22 @@
 import { reactive, ref, useTemplateRef } from "vue";
 import { useRouter } from "vue-router";
 import Auth from "../../services/auth";
-
+import axios from "axios";
 
 const password = useTemplateRef('password')
-
 function handleSee(){
-
     password.value.setAttribute("type", "text")
-  
 }
 
-
 const router = useRouter();
-
 const form = reactive({
   email:"",
   password:""
 });
-
 const error = ref("");
 
 const submit = async () => {
+  alert()
   try{
     await Auth.login(form);
     router.push("/");

@@ -15,6 +15,7 @@ import Login from "../pages/login/Login.vue";
 import LoginTemplate from "../layouts/LoginTemplate.vue";
 import Register from "../pages/login/Register.vue";
 import Auth from "../services/auth";
+import TypeScript from "../typescript/TypeScript.vue";
 
 const routes = [
   {
@@ -45,6 +46,7 @@ const routes = [
       { path: "/districts", component: DistrictList },
 
       { path: "/emit", component: Parent },
+      { path: "/type", component: TypeScript },
     ],
   },
 ];

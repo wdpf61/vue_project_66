@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script  setup>
+<script lang="ts"  setup>
 import axios from 'axios';
 import { onBeforeMount, onMounted, ref } from 'vue';
   let roles= ref([])
