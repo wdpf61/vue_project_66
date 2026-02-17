@@ -1,0 +1,59 @@
+type User {
+    id: ID!
+    name: String
+    email: String
+    created_at: String
+    updated_at: String
+}
+
+type Role {
+    id: ID!
+    name: String
+
+    created_at: String
+    updated_at: String
+}
+type District {
+    id: ID!
+    name: String
+
+    created_at: String
+    updated_at: String
+}
+
+
+
+type Customer {
+    id: ID!
+    name: String
+    email: String
+    phone: String
+    created_at: String
+    updated_at: String
+}
+
+type Query {
+    users: [User]! @all
+    user(email: String! @eq): User @find
+    user2(id: ID! @whereKey): User @find
+
+    customers: [Customer]! @all
+
+    roles: [Role]! @all
+    role(id: ID! @eq): Role @find
+
+    districts: [District]! @all
+    district(id: ID! @eq): District @find
+
+
+}
+
+type Mutation {
+    createUser(name: String!, email: String!): User @create
+    updateUser(id: ID, name: String, email: String): User @update
+    deleteUser(id: ID @eq): User @delete
+
+    createRole(name: String!): Role @create
+    updateRole(id: ID, name: String): Role @update
+    deleteRole(id: ID @eq): Role @delete
+}
