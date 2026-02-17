@@ -69,3 +69,8 @@ const filteredCustomers = computed(() => {
      customer.email.toLowerCase().includes(q)
   )
 })
+
+Graphql api consumtion
+
+npm install --save graphql graphql-tag @apollo/client
+npm install --save @vue/apollo-composable

@@ -16,6 +16,9 @@ import LoginTemplate from "../layouts/LoginTemplate.vue";
 import Register from "../pages/login/Register.vue";
 import Auth from "../services/auth";
 import TypeScript from "../typescript/TypeScript.vue";
+import DistrictsList from "../pages/district/DistrictsList.vue";
+import EditDistrict from "../pages/district/EditDistrict.vue";
+import CreateDistrict from "../pages/district/createDistrict.vue";
 
 const routes = [
   {
@@ -43,7 +46,9 @@ const routes = [
       { path: "/products", component: Products },
       { path: "/city", component: City },
 
-      { path: "/districts", component: DistrictList },
+      { path: "/district", component: DistrictsList },
+       { path: "/district/edit/:id", component: EditDistrict },
+        { path: "/district/create", component: CreateDistrict },
 
       { path: "/emit", component: Parent },
       { path: "/type", component: TypeScript },

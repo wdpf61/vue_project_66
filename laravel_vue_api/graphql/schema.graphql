@@ -2,6 +2,7 @@ type User {
     id: ID!
     name: String
     email: String
+    role:Role @belongsTo
     created_at: String
     updated_at: String
 }
@@ -9,16 +10,15 @@ type User {
 type Role {
     id: ID!
     name: String
-
+    user: [User] @hasMany
     created_at: String
     updated_at: String
 }
+
+
 type District {
     id: ID!
     name: String
-
-    created_at: String
-    updated_at: String
 }
 
 
@@ -45,7 +45,6 @@ type Query {
     districts: [District]! @all
     district(id: ID! @eq): District @find
 
-
 }
 
 type Mutation {
@@ -56,4 +55,9 @@ type Mutation {
     createRole(name: String!): Role @create
     updateRole(id: ID, name: String): Role @update
     deleteRole(id: ID @eq): Role @delete
+
+
+     createDistrict(name: String!): District @create
+    updateDistrict(id: ID, name: String): District @update
+    deleteDistrict(id: ID @eq): District @delete
 }
